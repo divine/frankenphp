@@ -11,6 +11,7 @@ import (
 	_ "github.com/dunglas/frankenphp/caddy"
 	_ "github.com/dunglas/mercure/caddy"
 	_ "github.com/dunglas/vulcain/caddy"
+	- "github.com/RussellLuo/caddy-ext/ratelimit"
 )
 
 func init() {
