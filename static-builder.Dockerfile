@@ -31,14 +31,17 @@ RUN apk update; \
         php82-curl \
         php82-dom \
         php82-mbstring \
+        php82-mongodb \
         php82-openssl \
         php82-pcntl \
         php82-phar \
         php82-posix \
+        php82-redis \
         php82-sodium \
         php82-tokenizer \
         php82-xml \
         php82-xmlwriter \
+        php82-pear \
         pkgconfig \
         wget \
         xz ; \
