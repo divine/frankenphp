@@ -44,6 +44,14 @@ RUN apk update; \
         xz ; \
     ln -sf /usr/bin/php82 /usr/bin/php
 
+# Install MongoDB extension
+RUN pecl install mongodb \
+    && docker-php-ext-enable mongodb
+
+# Install Redis extension
+RUN pecl install redis \
+    && docker-php-ext-enable redis
+
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
