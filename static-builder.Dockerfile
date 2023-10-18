@@ -3,7 +3,7 @@ FROM golang-base
 
 ARG FRANKENPHP_VERSION='dev'
 ARG PHP_VERSION='8.2'
-ARG PHP_EXTENSIONS='bcmath,calendar,ctype,curl,dba,dom,exif,filter,fileinfo,gd,iconv,intl,mbstring,mbregex,mysqli,mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pdo_pgsql,pdo_sqlite,pgsql,phar,posix,readline,redis,session,simplexml,sockets,sqlite3,tokenizer,xml,xmlreader,xmlwriter,zip,zlib,apcu'
+ARG PHP_EXTENSIONS='bcmath,calendar,ctype,curl,dba,dom,exif,filter,fileinfo,gd,iconv,intl,mbstring,mbregex,mysqli,mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pdo_pgsql,pdo_sqlite,pgsql,phar,posix,readline,redis,session,simplexml,sockets,sqlite3,tokenizer,xml,xmlreader,xmlwriter,zip,zlib,apcu,redis,mongodb'
 
 RUN apk update; \
     apk add --no-cache \
@@ -46,14 +46,6 @@ RUN apk update; \
         wget \
         xz ; \
     ln -sf /usr/bin/php82 /usr/bin/php
-
-# Install MongoDB extension
-RUN pecl install mongodb \
-    && docker-php-ext-enable mongodb
-
-# Install Redis extension
-RUN pecl install redis \
-    && docker-php-ext-enable redis
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
